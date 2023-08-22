@@ -1,0 +1,22 @@
+{
+  "name": "weather-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LukeEades/Weather-App2.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LukeEades/Weather-App2/issues"
+  },
+  "homepage": "https://github.com/LukeEades/Weather-App2#readme",
+  "devDependencies": {
+    "webpack": "^5.88.2"
+  }
+}
