@@ -17,7 +17,7 @@ window.addEventListener('keydown', e =>{
             if(json !== null){
                 console.log(json); 
                 // results.textContent = json.current.feelslike_c; 
-                // main.style.backgroundImage = `url(${json.current.condition.icon})`; 
+                results.style.backgroundImage = `url(${json.current.condition.icon})`; 
                 locTitle.innerHTML = `<div id = 'city'>${json.location.name}</div><div id = 'country'>${json.location.country}</div>`;  
                 tempCur.children[0].innerHTML = json.current.temp_f;  
             }else{
