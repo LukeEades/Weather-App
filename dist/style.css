@@ -99,3 +99,15 @@ main {
     opacity: 100%;
     height: 100vh;
 }
+
+.day {
+    font-size: medium;
+    width: 100/7%;
+    height: 100%;
+    background-color: purple;
+}
+
+#forecast {
+    display: grid;
+    grid-auto-flow: column;
+}
