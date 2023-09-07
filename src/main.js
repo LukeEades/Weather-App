@@ -24,7 +24,7 @@ try{fetch(`http://api.weatherapi.com/v1/forecast.json?key=9ab67380d0b14cb2aa1202
         tempCur.children[0].innerHTML = json.current.temp_f + '℉';  
         for(let i = 0; i < json.forecast.forecastday.length; i++){
             let day = document.createElement('div'); 
-            day.innerHTML = `<div class = "dayTitle">${weekdays[d.getDay() + i + 1]}</div><div class = "dayTemp">${json.forecast.forecastday[i].day.avgtemp_f}</div>`; 
+            day.innerHTML = `<div class = "dayTitle">${weekdays[d.getDay() + i + 1 >= weekdays.length ? (d.getDay() + i + 1) - weekdays.length: d.getDay() + i + 1]}</div><div class = "dayTemp">${json.forecast.forecastday[i].day.avgtemp_f}</div>`; 
             day.classList.add('day'); 
             forecast.appendChild(day); 
         }
@@ -49,10 +49,11 @@ window.addEventListener('keydown', e =>{
                 console.log(json); 
                 results.style.backgroundImage = `url(${json.current.condition.icon})`; 
                 locTitle.innerHTML = `<div id = 'city'>${json.location.name}</div><div id = 'country'>${json.location.country}</div>`;  
-                tempCur.children[0].innerHTML = json.current.temp_f + '℉';  
+                tempCur.children[0].innerHTML = json.current.temp_f + '℉';
+                forecast.innerHTML = ""; 
                 for(let i = 0; i < json.forecast.forecastday.length; i++){
                     let day = document.createElement('div'); 
-                    day.innerHTML = `<div class = "dayTitle">${weekdays[d.getDay() + i + 1]}</div><div class = "dayTemp">${json.forecast.forecastday[i].day.avgtemp_f}</div>`; 
+                    day.innerHTML = `<div class = "dayTitle">${weekdays[d.getDay() + i + 1 >= weekdays.length ? (d.getDay() + i + 1) - weekdays.length: d.getDay() + i + 1]}</div><div class = "dayTemp">${json.forecast.forecastday[i].day.avgtemp_f}</div>`; 
                     day.classList.add('day'); 
                     forecast.appendChild(day); 
                 }
