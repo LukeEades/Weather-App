@@ -4,6 +4,11 @@
     --bar-color: rgb(228, 228, 228);
 }
 
+body {
+    height: 100vh;
+    width: 100vw;
+}
+
 .center {
     justify-content: center;
 }
@@ -13,11 +18,13 @@
     grid-template-rows: 1fr 1fr;
     width: 100%;
     height: 100%;
+    max-width: 100%;
     background-color: black;
     opacity: 75%;
 }
 
 #location {
+    max-width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -28,13 +35,15 @@
 }
 
 #temp {
+    max-width: 100%;
     display: grid;
     width: 100%;
-    font-size: 350%;
+    font-size: 30%;
     align-items: start;
 }
 
 #f {
+    font-size: calc(10% + 5vw);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -50,19 +59,20 @@
 
 #city {
     -webkit-text-stroke: 1px black;
-    font-size: 5rem;
+    font-size: calc(.5rem + 10vw);
 }
 
 #country {
-    -webkit-text-stroke: .3px black;
-    font-size: medium;
+    /* -webkit-text-stroke: .3px black; */
+    font-size: calc(.1rem + 5vw);
 }
 
 #current {
+    max-width: 100%;
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    /* height: 75%; */
 }
 
 #loc {
@@ -81,32 +91,36 @@
 }
 
 main {
+    height: 100%;
     background-color: blue;
     display: flex;
     flex-direction: row;
+    width: 100%;
 }
 
 #middle {
+    min-width: 75%;
+    max-width: 100%;
     flex-basis: 50%;
     flex-shrink: 0;
+    flex-grow: 1;
     display: grid;
     grid-template-rows: 1fr 1fr 1fr;
     opacity: 85%;
-    height: 100vh;
     background-color: grey;
 }
 
 #left,
 #right {
-    flex-basis: 25%;
-    flex-shrink: 10;
+    width: max(10%, 10vw);
+    flex-basis: 10%;
+    flex-shrink: 2;
     opacity: 100%;
-    height: 100vh;
+    height: 100%;
 }
 
 .day {
     font-size: medium;
-    width: 100%;
     height: 100%;
     background-color: purple;
     display: grid;
@@ -116,7 +130,6 @@ main {
     grid-template-rows: 1fr 1fr;
 }
 
-.dayTitle {}
 
 .dayTemp {
     align-self: start;
@@ -125,4 +138,5 @@ main {
 #forecast {
     display: grid;
     grid-auto-flow: column;
+    grid-template-columns: 1fr 1fr 1fr;
 }
