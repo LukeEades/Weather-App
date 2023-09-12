@@ -1,8 +1,15 @@
+@font-face {
+    font-family: Josefin-Sans;
+    src: url('../fonts/JosefinSans-VariableFont_wght.ttf');
+}
+
 * {
+    font-family: Josefin-Sans;
     margin: 0;
     padding: 0;
     --bar-color: rgb(228, 228, 228);
 }
+
 
 body {
     height: 100vh;
@@ -52,7 +59,7 @@ body {
     height: 6ch;
     padding: 15px;
     background-color: purple;
-    border-radius: 10rem;
+    border-radius: 100vw;
     border: 2px solid peru;
     margin-bottom: 4rem;
 }
@@ -63,7 +70,6 @@ body {
 }
 
 #country {
-    /* -webkit-text-stroke: .3px black; */
     font-size: calc(.1rem + 5vw);
 }
 
@@ -139,4 +145,11 @@ main {
     display: grid;
     grid-auto-flow: column;
     grid-template-columns: 1fr 1fr 1fr;
+}
+
+#stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    align-items: center;
+    justify-items: center;
 }

@@ -21,10 +21,10 @@ try{fetch(`http://api.weatherapi.com/v1/forecast.json?key=9ab67380d0b14cb2aa1202
         console.log(json); 
         results.style.backgroundImage = `url(${json.current.condition.icon})`; 
         locTitle.innerHTML = `<div id = 'city'>${json.location.name}</div><div id = 'country'>${json.location.country}</div>`;  
-        tempCur.children[0].innerHTML = json.current.temp_f + '℉';  
+        tempCur.children[0].innerHTML = json.current.temp_f + '°F';  
         for(let i = 0; i < json.forecast.forecastday.length; i++){
             let day = document.createElement('div'); 
-            day.innerHTML = `<div class = 'dayTitle'>${weekdays[d.getDay() + i + 1 >= weekdays.length ? (d.getDay() + i + 1) - weekdays.length: d.getDay() + i + 1]}</div><div class = 'dayTemp'>${json.forecast.forecastday[i].day.avgtemp_f}℉</div>`; 
+            day.innerHTML = `<div class = 'dayTitle'>${weekdays[d.getDay() + i + 1 >= weekdays.length ? (d.getDay() + i + 1) - weekdays.length: d.getDay() + i + 1]}</div><div class = 'dayTemp'>${json.forecast.forecastday[i].day.avgtemp_f}°F</div>`; 
             day.classList.add('day'); 
             forecast.appendChild(day); 
         }
@@ -51,15 +51,16 @@ window.addEventListener('keydown', e =>{
                 console.log(json); 
                 results.style.backgroundImage = `url(${json.current.condition.icon})`; 
                 locTitle.innerHTML = `<div id = 'city'>${json.location.name}</div><div id = 'country'>${json.location.country}</div>`;  
-                tempCur.children[0].innerHTML = json.current.temp_f + '℉';
+                tempCur.children[0].innerHTML = json.current.temp_f + '°F';
                 forecast.innerHTML = ''; 
                 stats.innerHTML = ''; 
                 for(let i = 0; i < json.forecast.forecastday.length; i++){
                     let day = document.createElement('div'); 
-                    day.innerHTML = `<div class = 'dayTitle'>${weekdays[d.getDay() + i + 1 >= weekdays.length ? (d.getDay() + i + 1) - weekdays.length: d.getDay() + i + 1]}</div><div class = 'dayTemp'>${json.forecast.forecastday[i].day.avgtemp_f}℉</div>`; 
+                    day.innerHTML = `<div class = 'dayTitle'>${weekdays[d.getDay() + i + 1 >= weekdays.length ? (d.getDay() + i + 1) - weekdays.length: d.getDay() + i + 1]}</div><div class = 'dayTemp'>${json.forecast.forecastday[i].day.avgtemp_f}°F</div>`; 
                     day.classList.add('day'); 
                     forecast.appendChild(day); 
                 }
+                setStats(json); 
             }else{
                 throw new Error('problem parsing json'); 
             }
@@ -73,7 +74,13 @@ window.addEventListener('keydown', e =>{
 let setStats = (json)=>{
     let feelsF = document.createElement('div'); 
     let humidity = document.createElement('div'); 
-    feelsF.innerHTML = `Feels like: ${json.current.feelslike_f}℉`; 
+    let wind = document.createElement('div'); 
+    let cloud = document.createElement('div'); 
+    let uv = document.createElement('div'); 
+    feelsF.innerHTML = `Feels like: ${json.current.feelslike_f}°F`; 
     humidity.innerHTML = `Humidity: ${json.current.humidity}%`; 
-    stats.append(feelsF, humidity); 
+    wind.innerHTML = `Windspeed: ${json.current.wind_mph}mph`;
+    cloud.innerHTML = `${json.current.cloud}% cloudy`; 
+    uv.innerHTML = `UV index: ${json.current.uv}`; 
+    stats.append(feelsF, humidity, wind, cloud, uv); 
 }
