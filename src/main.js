@@ -24,7 +24,7 @@ try{fetch(`http://api.weatherapi.com/v1/forecast.json?key=9ab67380d0b14cb2aa1202
         tempCur.children[0].innerHTML = json.current.temp_f + '°F';  
         for(let i = 0; i < json.forecast.forecastday.length; i++){
             let day = document.createElement('div'); 
-            day.innerHTML = `<div class = 'dayTitle'>${weekdays[d.getDay() + i + 1 >= weekdays.length ? (d.getDay() + i + 1) - weekdays.length: d.getDay() + i + 1]}</div><div class = 'dayTemp'>${json.forecast.forecastday[i].day.avgtemp_f}°F</div>`; 
+            day.innerHTML = `<div class = 'dayTitle'>${weekdays[d.getDay() + i + 1 >= weekdays.length ? (d.getDay() + i + 1) - weekdays.length: d.getDay() + i + 1]}</div><div class = 'dayTempMax'>Max: ${json.forecast.forecastday[i].day.maxtemp_f}°F</div><div class = 'dayTempMin'>Min: ${json.forecast.forecastday[i].day.mintemp_f}°F</div>`; 
             day.classList.add('day'); 
             forecast.appendChild(day); 
         }
@@ -56,7 +56,7 @@ window.addEventListener('keydown', e =>{
                 stats.innerHTML = ''; 
                 for(let i = 0; i < json.forecast.forecastday.length; i++){
                     let day = document.createElement('div'); 
-                    day.innerHTML = `<div class = 'dayTitle'>${weekdays[d.getDay() + i + 1 >= weekdays.length ? (d.getDay() + i + 1) - weekdays.length: d.getDay() + i + 1]}</div><div class = 'dayTemp'>${json.forecast.forecastday[i].day.avgtemp_f}°F</div>`; 
+                    day.innerHTML = `<div class = 'dayTitle'>${weekdays[d.getDay() + i + 1 >= weekdays.length ? (d.getDay() + i + 1) - weekdays.length: d.getDay() + i + 1]}</div><div class = 'dayTempMax'>Max: ${json.forecast.forecastday[i].day.maxtemp_f}°F</div><div class = 'dayTempMin'>Min: ${json.forecast.forecastday[i].day.mintemp_f}°F</div>`; 
                     day.classList.add('day'); 
                     forecast.appendChild(day); 
                 }
