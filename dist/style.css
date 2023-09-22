@@ -66,14 +66,13 @@ body {
 
 #city {
     text-align: center;
-    text-shadow: 1px 1px 2px grey;
+    text-shadow: 1px .5px .5px grey;
     font-size: min(calc(.5rem + 10vw), 7rem);
 }
 
 #country {
     text-align: center;
-    /* -webkit-text-stroke: .5px black; */
-    text-shadow: 1px 1px 2px grey;
+    text-shadow: 1px .5px .5px grey;
     font-size: min(calc(.1rem + 5vw), 3rem);
 }
 
@@ -131,7 +130,7 @@ main {
 }
 
 .day {
-    font-size: medium;
+    font-size: calc(1vw + .5rem);
     height: 100%;
     background-color: var(--bar-color);
     display: grid;
@@ -162,7 +161,7 @@ main {
     display: grid;
     grid-auto-flow: column;
     grid-template-columns: 1fr 1fr 1fr;
-    min-height: 10rem;
+    min-height: 15rem;
     max-height: 20vh;
 }
 
@@ -172,8 +171,9 @@ main {
     grid-template-columns: 1fr 1fr 1fr;
     align-items: center;
     justify-items: center;
-    min-height: 10rem;
+    min-height: 16rem;
     background-color: grey;
+    font-size: calc(1vw + .5rem);
 }
 
 #middle::-webkit-scrollbar {
