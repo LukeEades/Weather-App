@@ -50,7 +50,7 @@ body {
 }
 
 #f {
-    font-size: calc(10% + 5vw);
+    font-size: calc(1rem + 3vw);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -66,11 +66,11 @@ body {
 
 #city {
     -webkit-text-stroke: 1px black;
-    font-size: min(calc(.5rem + 10vw), 10rem);
+    font-size: min(calc(.5rem + 10vw), 7rem);
 }
 
 #country {
-    font-size: min(calc(.1rem + 5vw), 5rem);
+    font-size: min(calc(.1rem + 5vw), 3rem);
 }
 
 #current {
@@ -114,6 +114,7 @@ main {
     grid-template-rows: 1fr 1fr 1fr;
     opacity: 85%;
     background-color: grey;
+    overflow: scroll;
 }
 
 #left,
@@ -145,6 +146,7 @@ main {
     display: grid;
     grid-auto-flow: column;
     grid-template-columns: 1fr 1fr 1fr;
+    min-height: 10rem;
 }
 
 #stats {
@@ -152,9 +154,9 @@ main {
     grid-template-columns: 1fr 1fr 1fr;
     align-items: center;
     justify-items: center;
-    overflow: scroll;
+    min-height: 10rem;
 }
 
-#stats::-webkit-scrollbar {
+#middle::-webkit-scrollbar {
     display: none;
 }
